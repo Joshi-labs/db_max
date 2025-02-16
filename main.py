@@ -59,4 +59,4 @@ async def execute_crypto_query():
 
 if __name__ == "__main__":
     os.makedirs(DATABASE_DIR, exist_ok=True)
-    app.run(port=4444)
+    app.run(host="0.0.0.0",port=4444)
