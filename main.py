@@ -2,12 +2,16 @@ import asyncio
 import aiosqlite
 import os
 from quart import Quart, jsonify, request
+from dotenv import load_dotenv
 
 app = Quart(__name__)
 
-DATABASE_DIR = "databases/"
-DATABASE_CRYPTO = "crypto.db"
-AUTH_KEY = "123"
+# Load environment variables from .env file
+load_dotenv()
+
+DATABASE_DIR = os.getenv("DATABASE_DIR") 
+DATABASE_CRYPTO = os.getenv("DATABASE_CRYPTO")
+AUTH_KEY = os.getenv("AUTH_KEY")
 
 
 async def execute_query(db_name, query):
